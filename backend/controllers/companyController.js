@@ -17,8 +17,6 @@ const setCompany = asyncHandler(async (req, res) => {
 
   const company = await Company.create({
     name: req.body.name,
-    drivers: req.body.drivers,
-    buses: req.body.buses,
     neighborhoods: req.body.neighborhoods,
   });
 

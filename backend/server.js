@@ -15,6 +15,6 @@ app.use('/api/customers', require('./routes/customerRoutes'))
 app.use('/api/drivers', require('./routes/driverRoutes'))
 app.use('/api/buses', require('./routes/busRoutes'))
 app.use('/api/companies', require('./routes/companyRoutes'))
-// app.use('/api/packages', require('./routes/packagesRoutes'))
+app.use('/api/packages', require('./routes/packageRoutes'))
 
 app.listen(port, () => console.log("server running on port", port))

@@ -20,6 +20,7 @@ const setDriver = asyncHandler(async (req, res) => {
     phoneNumber: req.body.phoneNumber,
     DOB: req.body.DOB,
     gender: req.body.gender,
+    companyID: req.body.companyID,
   });
   res.status(200).json(driver);
 });

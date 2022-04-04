@@ -16,7 +16,9 @@ const getBuses = asyncHandler(async (req, res) => {
 const setBus = asyncHandler(async (req, res) => {
   const bus = await Bus.create({
     plateNumber: req.body.plateNumber,
+    MaxCapacity: req.body.MaxCapacity,
     driver: req.body.driver,
+    companyID: req.body.companyID,
   });
   res.status(200).json(bus);
 });

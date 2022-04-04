@@ -1,20 +1,28 @@
 const asyncHandler = require('express-async-handler')
 
+const Package = require("../models/packageModel");
+
 // @desc    Get packages
 // @route   GET /api/packages
 // @access  Private
 const getPackages = asyncHandler(async (req, res) => {
-  res.status(200).json({ message: "get package" });
+  const packages = await Package.find();
+  res.status(200).json(packages);
 })
 
 // @desc    Set package
 // @route   POST /api/packages
 // @access  Private
 const setPackage = asyncHandler(async (req, res) => {
-  if (!req.body.text) {
-    res.status(400).json({ message: "please add a package" });
-  }
-  res.status(200).json({ message: "set package" });
+  const package = await Package.create({
+    companyID: req.body.companyID,
+    duration: req.body.duration,
+    price: req.body.price,
+    destination: req.body.destination,
+    maxCustomerNumber: req.body.maxCustomerNumber,
+    minCustomerNumber: req.body.minCustomerNumber,
+  });
+  res.status(200).json(package);
 })
 
 // @desc    Update package

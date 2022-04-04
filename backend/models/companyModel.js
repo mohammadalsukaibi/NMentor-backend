@@ -7,8 +7,8 @@ const companySchema = mongoose.Schema(
       required: [true, 'Please add a name'],
       unique: true,
     },
-    drivers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Driver'}],
-    buses: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Bus'}],
+    // drivers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Driver'}],
+    // buses: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Bus'}],
     neighborhoods: [{
       type: String,
     }],
