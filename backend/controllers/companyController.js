@@ -15,12 +15,14 @@ const getCompanies = asyncHandler(async (req, res) => {
 // @access  Private
 const setCompany = asyncHandler(async (req, res) => {
 
+  const {name, neighborhoods} = req.body
+
   const company = await Company.create({
-    name: req.body.name,
-    neighborhoods: req.body.neighborhoods,
+    name,
+    neighborhoods
   });
 
-  res.status(200).json(company);
+  res.json(company);
 
 })
 

@@ -8,6 +8,6 @@ const {
 } = require("../controllers/busController");
 
 router.route("/").get(getBuses).post(setBus);
-router.route("/:id").delete(updateBus).put(deleteBus);
+router.route("/:id").delete(deleteBus).put(updateBus);
 
 module.exports = router;

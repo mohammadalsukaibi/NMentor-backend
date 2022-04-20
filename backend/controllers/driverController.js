@@ -14,15 +14,18 @@ const getDrivers = asyncHandler(async (req, res) => {
 // @route   POST /api/drivers
 // @access  Private
 const setDriver = asyncHandler(async (req, res) => {
+
+  const {fullName, licenseNumber, phoneNumber, DOB, gender, companyID} = req.body
+
   const driver = await Driver.create({
-    fullName: req.body.fullName,
-    licenseNumber: req.body.licenseNumber,
-    phoneNumber: req.body.phoneNumber,
-    DOB: req.body.DOB,
-    gender: req.body.gender,
-    companyID: req.body.companyID,
+    fullName,
+    licenseNumber,
+    phoneNumber,
+    DOB,
+    gender,
+    companyID,
   });
-  res.status(200).json(driver);
+  res.json(driver);
 });
 
 // @desc    Update driver

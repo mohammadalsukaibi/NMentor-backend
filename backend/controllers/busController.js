@@ -7,20 +7,22 @@ const Bus = require("../models/busModel");
 // @access  Private
 const getBuses = asyncHandler(async (req, res) => {
   const buses = await Bus.find();
-  res.status(200).json(buses);
+  res.json(buses);
 });
 
 // @desc    Set bus
 // @route   POST /api/buses
 // @access  Private
 const setBus = asyncHandler(async (req, res) => {
+
+  const {plateNumber, MaxCapacity, driver, companyID} = req.body
   const bus = await Bus.create({
-    plateNumber: req.body.plateNumber,
-    MaxCapacity: req.body.MaxCapacity,
-    driver: req.body.driver,
-    companyID: req.body.companyID,
+    plateNumber,
+    MaxCapacity,
+    driver,
+    companyID,
   });
-  res.status(200).json(bus);
+  res.json(bus);
 });
 
 // @desc    Update bus
